@@ -1,7 +1,4 @@
 <resources>
-    <!-- Main app theme should be defined in themes.xml (e.g., values/themes.xml and values-night/themes.xml) -->
-    <!-- Remove any <style name="Theme.Converter"...> from here if it's also in themes.xml -->
-
     <style name="ConverterInputEditText">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>

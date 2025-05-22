@@ -58,6 +58,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mainContentLayout: View
     private val explosionHandler = Handler(Looper.getMainLooper())
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -349,19 +350,33 @@ class MainActivity : AppCompatActivity() {
         return if (totalDuration > 0 && totalDuration < 5000) totalDuration else 800L
     }
 
-    private fun triggerInstantScreenShake(intensity: Float = 5f, duration: Long = 60L) {
+    private fun triggerInstantScreenShake(intensity: Float = 30f, duration: Long = 200L) { // Increased intensity and duration
         mainContentLayout.animate().cancel()
         mainContentLayout.translationX = 0f
         mainContentLayout.translationY = 0f
 
-        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_X, 0f, intensity, -intensity, intensity * 0.7f, -intensity * 0.7f, 0f).apply {
+        // X-axis shake
+        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_X,
+            0f,
+            intensity,
+            -intensity,
+            intensity * 0.7f,
+            -intensity * 0.7f,
+            intensity * 0.4f,
+            -intensity * 0.4f,
+            0f).apply {
             this.duration = duration
-            interpolator = CycleInterpolator(1.5f)
+            this.interpolator = CycleInterpolator(1.5f)
             start()
         }
-        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_Y, 0f, intensity * 0.6f, -intensity * 0.6f, 0f).apply {
+
+        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_Y,
+            0f,
+            intensity * 0.6f,
+            -intensity * 0.6f,
+            0f).apply {
             this.duration = duration
-            interpolator = CycleInterpolator(1f)
+            this.interpolator = CycleInterpolator(1f)
             start()
         }
     }

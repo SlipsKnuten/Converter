@@ -58,13 +58,13 @@
                     app:tint="?attr/colorControlNormal"/>
             </RelativeLayout>
 
-            <!-- KILOGRAMS to POUNDS -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Weight: Kilograms to Pounds"
+                android:text="Kilograms to Pounds"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center_horizontal"
                 android:layout_marginBottom="8dp"/>
             <EditText
                 android:id="@+id/editTextKilos"
@@ -79,13 +79,13 @@
                 tools:text="0.00 Pounds"/>
             <View style="@style/Divider"/>
 
-            <!-- CENTIMETERS to INCHES -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Length: Centimeters to Inches"
+                android:text="Centimeters to Inches"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center_horizontal"
                 android:layout_marginBottom="8dp"/>
             <EditText
                 android:id="@+id/editTextCm"
@@ -97,16 +97,17 @@
             <TextView
                 android:id="@+id/textViewResultInches"
                 style="@style/ConverterResultTextView"
-            tools:text="0.00 Inches"/>
+                tools:text="0.00 Inches"/>
             <View style="@style/Divider"/>
 
             <!-- LITERS to GALLONS (US) -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Volume: Liters to Gallons (US)"
+                android:text="Liters to Gallons"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center_horizontal"
                 android:layout_marginBottom="8dp"/>
             <EditText
                 android:id="@+id/editTextLiters"
@@ -118,16 +119,17 @@
             <TextView
                 android:id="@+id/textViewResultGallons"
                 style="@style/ConverterResultTextView"
-            tools:text="0.00 Gallons"/>
+                tools:text="0.00 Gallons"/>
             <View style="@style/Divider"/>
 
             <!-- METERS to FEET -->
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Large Length: Meters to Feet"
+                android:text="Meters to Feet"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:gravity="center_horizontal"
                 android:layout_marginBottom="8dp"/>
             <EditText
                 android:id="@+id/editTextMeters"
@@ -139,7 +141,7 @@
             <TextView
                 android:id="@+id/textViewResultFeet"
                 style="@style/ConverterResultTextView"
-            tools:text="0.00 Feet"/>
+                tools:text="0.00 Feet"/>
         </LinearLayout>
     </ScrollView>
 
@@ -152,11 +154,3 @@
         tools:visibility="visible"/>
 
 </FrameLayout>
-
-
-    git init
-    git add .
-    git commit -m "first commit"
-    git branch -M main
-    git remote add origin https://github.com/SlipsKnuten/Converter.git
-    git push -u origin main
