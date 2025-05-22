@@ -1,0 +1,57 @@
+<resources>
+    <!-- Main app theme should be defined in themes.xml (e.g., values/themes.xml and values-night/themes.xml) -->
+    <!-- Remove any <style name="Theme.Converter"...> from here if it's also in themes.xml -->
+
+    <style name="ConverterInputEditText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:minWidth">90dp</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:paddingStart">4dp</item>
+        <item name="android:paddingEnd">4dp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ConverterInputEditTextCentered" parent="ConverterInputEditText">
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_marginBottom">4dp</item>
+    </style>
+
+    <style name="ConverterSeekBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">0</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:thumbTint">?attr/colorPrimary</item>
+        <item name="android:progressTint">?attr/colorPrimary</item>
+        <item name="android:progressBackgroundTint">#CCCCCC</item>
+    </style>
+
+    <style name="ConverterSeekBarWithTopMargin" parent="ConverterSeekBar">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+    </style>
+
+    <style name="ConverterResultTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center_horizontal</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">?android:attr/listDivider</item>
+        <item name="android:layout_marginTop">16dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+</resources>

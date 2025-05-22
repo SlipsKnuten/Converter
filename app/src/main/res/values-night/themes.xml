@@ -1,0 +1,6 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Base.Theme.Converter" parent="Theme.Material3.DayNight.NoActionBar"> <!-- Or Theme.Material3.Dark.NoActionBar -->
+        <!-- Customize your dark theme here. -->
+    </style>
+    <!-- Theme.Converter inherits from the night version of Base.Theme.Converter from themes.xml -->
+</resources>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/mainContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/appLogo"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/icon"
+                android:contentDescription="@string/app_logo_description"
+                android:layout_marginBottom="16dp"/>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp">
+                <ImageView
+                    android:id="@+id/iconSun"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_sun"
+                    android:layout_toStartOf="@id/switchTheme"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="8dp"
+                    app:tint="?attr/colorControlNormal"/>
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switchTheme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:minHeight="48dp"/>
+                <ImageView
+                    android:id="@+id/iconMoon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_cloud"
+                    android:layout_toEndOf="@id/switchTheme"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    app:tint="?attr/colorControlNormal"/>
+            </RelativeLayout>
+
+            <!-- KILOGRAMS to POUNDS -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Weight: Kilograms to Pounds"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/editTextKilos"
+                style="@style/ConverterInputEditTextCentered"
+                android:hint="0 Kilograms"/>
+            <SeekBar
+                android:id="@+id/seekBarKilos"
+                style="@style/ConverterSeekBarWithTopMargin"/>
+            <TextView
+                android:id="@+id/textViewResultPounds"
+                style="@style/ConverterResultTextView"
+                tools:text="0.00 Pounds"/>
+            <View style="@style/Divider"/>
+
+            <!-- CENTIMETERS to INCHES -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Length: Centimeters to Inches"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/editTextCm"
+                style="@style/ConverterInputEditTextCentered"
+                android:hint="0 Centimeters"/>
+            <SeekBar
+                android:id="@+id/seekBarCm"
+                style="@style/ConverterSeekBarWithTopMargin"/>
+            <TextView
+                android:id="@+id/textViewResultInches"
+                style="@style/ConverterResultTextView"
+            tools:text="0.00 Inches"/>
+            <View style="@style/Divider"/>
+
+            <!-- LITERS to GALLONS (US) -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Volume: Liters to Gallons (US)"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/editTextLiters"
+                style="@style/ConverterInputEditTextCentered"
+                android:hint="0 Liters"/>
+            <SeekBar
+                android:id="@+id/seekBarLiters"
+                style="@style/ConverterSeekBarWithTopMargin"/>
+            <TextView
+                android:id="@+id/textViewResultGallons"
+                style="@style/ConverterResultTextView"
+            tools:text="0.00 Gallons"/>
+            <View style="@style/Divider"/>
+
+            <!-- METERS to FEET -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Large Length: Meters to Feet"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp"/>
+            <EditText
+                android:id="@+id/editTextMeters"
+                style="@style/ConverterInputEditTextCentered"
+                android:hint="0 Meters"/>
+            <SeekBar
+                android:id="@+id/seekBarMeters"
+                style="@style/ConverterSeekBarWithTopMargin"/>
+            <TextView
+                android:id="@+id/textViewResultFeet"
+                style="@style/ConverterResultTextView"
+            tools:text="0.00 Feet"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/gifExplosionView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:visibility="gone"
+        tools:src="@drawable/icon"
+        tools:visibility="visible"/>
+
+</FrameLayout>
+
+
+    git init
+    git add .
+    git commit -m "first commit"
+    git branch -M main
+    git remote add origin https://github.com/SlipsKnuten/Converter.git
+    git push -u origin main
