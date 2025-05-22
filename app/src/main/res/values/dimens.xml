@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default dimensions (for 360dp width and above) -->
+    
+    <!-- Layout spacing -->
+    <dimen name="activity_padding">24dp</dimen>
+    <dimen name="card_padding">20dp</dimen>
+    <dimen name="card_margin_bottom">24dp</dimen>
+    <dimen name="category_button_margin">4dp</dimen>
+    
+    <!-- Text sizes -->
+    <dimen name="title_text_size">32sp</dimen>
+    <dimen name="converter_title_size">24sp</dimen>
+    <dimen name="input_text_size">24sp</dimen>
+    <dimen name="unit_text_size">24sp</dimen>
+    <dimen name="result_text_size">28sp</dimen>
+    <dimen name="category_button_text_size">26sp</dimen>
+    
+    <!-- Component sizes -->
+    <dimen name="flag_width">80dp</dimen>
+    <dimen name="flag_height">80dp</dimen>
+    <dimen name="usa_flag_height">60dp</dimen>
+    <dimen name="seekbar_margin_top">16dp</dimen>
+    <dimen name="seekbar_margin_bottom">16dp</dimen>
+    <dimen name="seekbar_padding_horizontal">20dp</dimen>
+    <dimen name="button_padding">16dp</dimen>
+    
+    <!-- Element spacing -->
+    <dimen name="element_margin_small">8dp</dimen>
+    <dimen name="element_margin_medium">16dp</dimen>
+    <dimen name="element_margin_large">24dp</dimen>
+    <dimen name="element_margin_xlarge">32dp</dimen>
+    
+    <!-- Layout constraints -->
+    <dimen name="content_max_width">600dp</dimen>
+    
+    <!-- Additional UI elements -->
+    <dimen name="switch_min_height">48dp</dimen>
+    <dimen name="switch_margin_horizontal">8dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+    <dimen name="edit_text_min_width">80dp</dimen>
+    <dimen name="unit_label_margin_start">8dp</dimen>
+    <item name="title_shadow_radius" type="dimen" format="float">8.0</item>
+</resources>

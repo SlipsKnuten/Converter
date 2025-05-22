@@ -1,0 +1,37 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# Claude-specific files
+.claude/
+# CLAUDE.md is useful for collaborators, so we track it
+
+# Personal project documentation
+PRODUCTION_READY_STATUS.md
+GOOGLE_PLAY_RELEASE_TODO.md
+
+# Additional IDE files
+.idea/*.xml
+!.idea/codeStyles/
+!.idea/runConfigurations/
+.idea/deviceManager.xml
+
+# Keystore files (for release signing)
+*.jks
+*.keystore
+release-key.jks
+
+# Gradle wrapper jar (optional - some prefer to track it)
+# gradle/wrapper/gradle-wrapper.jar

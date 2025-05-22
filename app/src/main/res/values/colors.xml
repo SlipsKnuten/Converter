@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Primary Color Scheme -->
+    <color name="primary_text">#D7D7D7</color>  <!-- Light gray for text -->
+    <color name="primary_blue">#447D9B</color>  <!-- Medium blue -->
+    <color name="background_dark">#273F4F</color>  <!-- Dark blue-gray background -->
+    <color name="accent_orange">#FE7743</color>  <!-- Orange accent -->
+    
+    <!-- UI Colors -->
+    <color name="background_primary">#273F4F</color>
+    <color name="surface_primary">#1e3140</color>  <!-- Darker than background for cards -->
+    <color name="text_primary">#D7D7D7</color>
+    <color name="text_secondary">#447D9B</color>
+    <color name="accent_primary">#FE7743</color>
+    <color name="accent_glow">#FE7743</color>
+    
+    <!-- Component Colors -->
+    <color name="card_background">#1e3140</color>
+    
+    <!-- Legacy names (used in layout) -->
+    <color name="khaki">#FE7743</color>  <!-- Used for result text -->
+    <color name="military_tan">#D7D7D7</color>  <!-- Used for titles -->
+</resources>

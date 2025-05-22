@@ -1,0 +1,21 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background line (thin) -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/background_dark" />
+            <size android:height="2dp" />
+            <corners android:radius="1dp" />
+        </shape>
+    </item>
+    
+    <!-- Progress line (highlighted portion) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="@color/accent_orange" />
+                <size android:height="3dp" />
+                <corners android:radius="1.5dp" />
+            </shape>
+        </clip>
+    </item>
+</layer-list>

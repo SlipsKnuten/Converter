@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rootFrameLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_background"
+    android:fitsSystemWindows="true"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:id="@+id/mainScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/mainContentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="@dimen/activity_padding"
+            android:layout_gravity="center_horizontal">
+
+            <!-- App Title -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/converter_title"
+                android:textColor="@color/text_primary"
+                android:textSize="@dimen/title_text_size"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:letterSpacing="0.2"
+                android:layout_marginBottom="@dimen/element_margin_large"
+                android:shadowColor="@color/accent_glow"
+                android:shadowDx="0"
+                android:shadowDy="0"
+                android:shadowRadius="@dimen/title_shadow_radius" />
+
+            <!-- Region Toggle -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/converter_card_background"
+                android:paddingStart="@dimen/element_margin_medium"
+                android:paddingEnd="@dimen/element_margin_medium"
+                android:paddingTop="@dimen/card_padding"
+                android:paddingBottom="@dimen/card_padding"
+                android:layout_marginBottom="@dimen/element_margin_xlarge">
+
+                <ImageView
+                    android:id="@+id/flagEU"
+                    android:layout_width="@dimen/flag_width"
+                    android:layout_height="@dimen/flag_height"
+                    android:layout_marginEnd="@dimen/element_margin_medium"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/eu" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/regionToggle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/switch_min_height"
+                    android:layout_marginHorizontal="@dimen/switch_margin_horizontal" />
+
+                <ImageView
+                    android:id="@+id/flagUSA"
+                    android:layout_width="@dimen/flag_width"
+                    android:layout_height="@dimen/usa_flag_height"
+                    android:src="@drawable/usa"
+                    android:scaleType="fitCenter"
+                    android:adjustViewBounds="true"
+                    android:layout_marginStart="@dimen/element_margin_medium" />
+            </LinearLayout>
+
+            <!-- Category Selector -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="@dimen/card_margin_bottom">
+
+                <Button
+                    android:id="@+id/btnLengthCategory"
+                    style="@style/CategoryButton"
+                    android:text="@string/category_length"
+                    android:layout_marginEnd="@dimen/category_button_margin" />
+
+                <Button
+                    android:id="@+id/btnWeightCategory"
+                    style="@style/CategoryButton"
+                    android:text="@string/category_weight"
+                    android:layout_marginStart="@dimen/category_button_margin"
+                    android:layout_marginEnd="@dimen/category_button_margin" />
+
+                <Button
+                    android:id="@+id/btnVolumeCategory"
+                    style="@style/CategoryButton"
+                    android:text="@string/category_volume"
+                    android:layout_marginStart="@dimen/category_button_margin" />
+            </LinearLayout>
+
+            <!-- Length Category -->
+            <LinearLayout
+                android:id="@+id/lengthCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <!-- Length Converter (cm/in) -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding"
+                android:layout_marginBottom="@dimen/card_margin_bottom">
+
+                <TextView
+                    android:id="@+id/textViewCmInTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_cm_in"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextCm"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewCmUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_cm"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarCm"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultInches"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewInchesUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_in"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Distance Converter (m/ft) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin_bottom"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/textViewMFtTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_m_ft"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextMeters"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewMetersUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_m"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarMeters"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultFeet"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewFeetUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_ft"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Length Converter (yd/m) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/converter_card_background"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/textViewYdMTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/converter_m_yd"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextMetersYd"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewMetersYdUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_m"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarMetersYd"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultYards"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewYardsUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_yd"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+            <!-- Weight Category -->
+            <LinearLayout
+                android:id="@+id/weightCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- Weight Converter (kg/lb) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin_bottom"
+                android:background="@drawable/converter_card_background"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/textViewKgLbTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/converter_kg_lb"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextKilos"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewKilosUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_kg"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarKilos"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultPounds"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewPoundsUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_lb"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+                <!-- Weight Converter (g/oz) -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/card_margin_bottom"
+                android:background="@drawable/converter_card_background"
+                android:orientation="vertical"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/textViewGOzTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/converter_g_oz"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextGrams"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewGramsUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_g"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarGrams"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultOunces"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewOuncesUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_oz"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+            <!-- Volume Category -->
+            <LinearLayout
+                android:id="@+id/volumeCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!-- MPG/L per 100km Converter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding"
+                android:layout_marginBottom="@dimen/card_margin_bottom">
+
+                <TextView
+                    android:id="@+id/textViewMpgL100kmTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_mpg_l100km"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextMpg"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewMpgUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_mpg"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarMpg"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultL100km"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewL100kmUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_l100km"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Volume Converter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding"
+                android:layout_marginTop="@dimen/element_margin_large">
+
+                <TextView
+                    android:id="@+id/textViewLGalTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_l_gal"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextLiters"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewLitersUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_l"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarLiters"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultGallons"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewGallonsUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_gal"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</FrameLayout>
