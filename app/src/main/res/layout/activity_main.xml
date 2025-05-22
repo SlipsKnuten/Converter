@@ -19,6 +19,7 @@
             android:orientation="vertical"
             android:padding="16dp">
 
+            <!-- App Logo -->
             <ImageView
                 android:id="@+id/appLogo"
                 android:layout_width="80dp"
@@ -28,6 +29,7 @@
                 android:contentDescription="@string/app_logo_description"
                 android:layout_marginBottom="16dp"/>
 
+            <!-- Theme Switcher -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -58,10 +60,11 @@
                     app:tint="?attr/colorControlNormal"/>
             </RelativeLayout>
 
+            <!-- KILOGRAMS to POUNDS -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Kilograms to Pounds"
+                android:text="Weight: Kilograms to Pounds"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -79,10 +82,11 @@
                 tools:text="0.00 Pounds"/>
             <View style="@style/Divider"/>
 
+            <!-- CENTIMETERS to INCHES -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Centimeters to Inches"
+                android:text="Length: Centimeters to Inches"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -104,7 +108,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Liters to Gallons"
+                android:text="Volume: Liters to Gallons (US)"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"
@@ -126,7 +130,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Meters to Feet"
+                android:text="Large Length: Meters to Feet"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:gravity="center_horizontal"

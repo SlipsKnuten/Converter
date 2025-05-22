@@ -123,9 +123,31 @@ class MainActivity : AppCompatActivity() {
     private fun updateIconVisibility(isDarkMode: Boolean) {
     }
 
+    private fun extractNumberAndUnit(text: String, unitName: String): Pair<String, String> {
+        val trimmedUnitName = unitName.trim() // Ensure unitName itself has no leading/trailing spaces
+        var textToParse = text.trim()
+        var extractedUnit = ""
+
+        // Check if the text ends with the unit name (case-insensitive for robustness)
+        if (textToParse.endsWith(trimmedUnitName, ignoreCase = true)) {
+            val unitIndex = textToParse.lastIndexOf(trimmedUnitName, ignoreCase = true)
+            if (unitIndex != -1) {
+                extractedUnit = textToParse.substring(unitIndex) // Keep original casing of unit
+                textToParse = textToParse.substring(0, unitIndex).trim()
+            }
+        }
+        // A more robust parser might handle "10kg", "10 kg", etc.
+        // For now, this handles "10 Kilograms" or just "10".
+        return Pair(textToParse, extractedUnit)
+    }
+
+
     private fun setupConverter(config: ConverterConfig) {
-        config.inputEditText.setText(decimalFormat.format(config.absMinInput))
-        config.inputEditText.hint = "${decimalFormat.format(config.absMinInput)} ${config.fromUnitName}"
+        val initialText = "${decimalFormat.format(config.absMinInput)} ${config.fromUnitName}"
+        config.inputEditText.setText(initialText)
+        config.inputEditText.setSelection(decimalFormat.format(config.absMinInput).length)
+
+        config.inputEditText.hint = "0 ${config.fromUnitName}"
         config.inputSeekBar.max = config.seekBarInternalMax
         config.inputSeekBar.progress = 0
         config.inputSeekBar.tag = Pair(config.absMinInput, config.absMaxInput)
@@ -139,27 +161,29 @@ class MainActivity : AppCompatActivity() {
                 if (isUpdatingEditTextFromSeekBarByCode) return
                 isUpdatingSeekBarFromEditTextByCode = true
 
-                val value = s.toString().toDoubleOrNull() ?: config.absMinInput
+                val (numericString, _) = extractNumberAndUnit(s.toString(), config.fromUnitName)
+                val value = numericString.toDoubleOrNull() ?: config.absMinInput
+
                 val (absMin, absMax) = config.inputSeekBar.tag as Pair<Double, Double>
                 var clampedValue = value.coerceIn(absMin, absMax)
 
-                val originalInputString = s?.toString()
-                val originalInputValue = originalInputString?.toDoubleOrNull()
-                var textChangedDueToCode = false
+                val originalInputValue = numericString.toDoubleOrNull()
+                var textNeedsUpdate = false
 
                 if (originalInputValue != null && originalInputValue != clampedValue) {
-                    config.inputEditText.setText(decimalFormat.format(clampedValue))
-                    config.inputEditText.text?.let { currentText ->
-                        config.inputEditText.setSelection(currentText.length)
-                    }
-                    textChangedDueToCode = true
-                } else if (originalInputString != null && originalInputString.isNotEmpty() && originalInputValue == null) {
+                    textNeedsUpdate = true
+                } else if (s.toString().isNotEmpty() && originalInputValue == null && numericString.isNotEmpty()) {
                     clampedValue = absMin
-                    config.inputEditText.setText(decimalFormat.format(clampedValue))
-                    config.inputEditText.text?.let { currentText ->
-                        config.inputEditText.setSelection(currentText.length)
-                    }
-                    textChangedDueToCode = true
+                    textNeedsUpdate = true
+                }
+
+                if (textNeedsUpdate) {
+                    val newText = "${decimalFormat.format(clampedValue)} ${config.fromUnitName}"
+                    config.inputEditText.setText(newText)
+                    val numberPartLength = decimalFormat.format(clampedValue).length
+                    try { // setSelection can sometimes fail if text is changing rapidly
+                        config.inputEditText.setSelection(numberPartLength.coerceAtMost(newText.length))
+                    } catch (e: IndexOutOfBoundsException) { /* ignore */ }
                 }
 
                 val progress = if (absMax - absMin != 0.0) {
@@ -168,7 +192,7 @@ class MainActivity : AppCompatActivity() {
                 config.inputSeekBar.progress = progress.coerceIn(0, config.inputSeekBar.max)
                 updateConversionResult(config, clampedValue)
 
-                if (!textChangedDueToCode && s.toString().isNotEmpty()) {
+                if (s.toString().isNotEmpty() && !textNeedsUpdate) {
                     val currentTime = System.currentTimeMillis()
                     if(currentTime - lastTextChangeShakeTime > textShakeThreshold) {
                         triggerInstantScreenShake(intensity = 2f, duration = 40)
@@ -201,7 +225,14 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     absMin
                 }
-                config.inputEditText.setText(decimalFormat.format(actualValue))
+
+                val textForEditText = "${decimalFormat.format(actualValue)} ${config.fromUnitName}"
+                config.inputEditText.setText(textForEditText)
+                val numberPartLength = decimalFormat.format(actualValue).length
+                try {
+                    config.inputEditText.setSelection(numberPartLength.coerceAtMost(textForEditText.length))
+                } catch (e: IndexOutOfBoundsException) { /* ignore */ }
+
                 updateConversionResult(config, actualValue)
 
                 if (fromUser && seekBar.thumb != null) {
@@ -350,33 +381,19 @@ class MainActivity : AppCompatActivity() {
         return if (totalDuration > 0 && totalDuration < 5000) totalDuration else 800L
     }
 
-    private fun triggerInstantScreenShake(intensity: Float = 30f, duration: Long = 200L) { // Increased intensity and duration
+    private fun triggerInstantScreenShake(intensity: Float = 5f, duration: Long = 60L) {
         mainContentLayout.animate().cancel()
         mainContentLayout.translationX = 0f
         mainContentLayout.translationY = 0f
 
-        // X-axis shake
-        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_X,
-            0f,
-            intensity,
-            -intensity,
-            intensity * 0.7f,
-            -intensity * 0.7f,
-            intensity * 0.4f,
-            -intensity * 0.4f,
-            0f).apply {
+        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_X, 0f, intensity, -intensity, intensity * 0.7f, -intensity * 0.7f, 0f).apply {
             this.duration = duration
-            this.interpolator = CycleInterpolator(1.5f)
+            interpolator = CycleInterpolator(1.5f)
             start()
         }
-
-        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_Y,
-            0f,
-            intensity * 0.6f,
-            -intensity * 0.6f,
-            0f).apply {
+        ObjectAnimator.ofFloat(mainContentLayout, View.TRANSLATION_Y, 0f, intensity * 0.6f, -intensity * 0.6f, 0f).apply {
             this.duration = duration
-            this.interpolator = CycleInterpolator(1f)
+            interpolator = CycleInterpolator(1f)
             start()
         }
     }
