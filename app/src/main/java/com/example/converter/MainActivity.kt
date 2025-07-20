@@ -197,7 +197,7 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.textViewResultL100km),
             findViewById(R.id.textViewL100kmUnit),
             findViewById(R.id.textViewMpgL100kmTitle),
-            getString(R.string.unit_mpg), getString(R.string.unit_l100km), 1.0, 0.0, 200.0, 0.0, 80.0
+            getString(R.string.unit_l100km), getString(R.string.unit_mpg), 0.5, 0.0, 30.0, 0.0, 100.0
         )
         converters.add(mpgL100kmConfig)
         setupConverter(mpgL100kmConfig)
