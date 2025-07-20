@@ -59,7 +59,7 @@
                     android:layout_marginEnd="@dimen/element_margin_medium"
                     android:scaleType="fitCenter"
                     android:src="@drawable/eu"
-                    android:contentDescription="EU Flag" />
+                    android:contentDescription="@string/content_desc_eu_flag" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/regionToggle"
@@ -76,7 +76,7 @@
                     android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
                     android:layout_marginStart="@dimen/element_margin_medium"
-                    android:contentDescription="USA Flag" />
+                    android:contentDescription="@string/content_desc_usa_flag" />
             </LinearLayout>
 
             <!-- Category Selector -->

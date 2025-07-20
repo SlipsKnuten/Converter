@@ -42,6 +42,10 @@
     <!-- Hints -->
     <string name="hint_zero">0</string>
     
+    <!-- Content Descriptions -->
+    <string name="content_desc_eu_flag">EU Flag</string>
+    <string name="content_desc_usa_flag">USA Flag</string>
+    
     <!-- Unit Names (for dynamic title generation) -->
     <string name="unit_name_kilograms">Kilograms</string>
     <string name="unit_name_pounds">Pounds</string>
