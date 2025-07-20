@@ -617,14 +617,14 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Volume Converter -->
+            <!-- Volume Converter (L/gal) -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:background="@drawable/converter_card_background"
                 android:padding="@dimen/card_padding"
-                android:layout_marginTop="@dimen/element_margin_large">
+                android:layout_marginBottom="@dimen/card_margin_bottom">
 
                 <TextView
                     android:id="@+id/textViewLGalTitle"
@@ -691,6 +691,167 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/unit_gal"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ml/fl oz Converter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding"
+                android:layout_marginBottom="@dimen/card_margin_bottom">
+
+                <TextView
+                    android:id="@+id/textViewMlOzTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_ml_oz"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextMl"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewMlUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_ml"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarMl"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultOz"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewOzUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_fl_oz"
+                        android:textColor="@color/khaki"
+                        android:textSize="@dimen/result_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- dl/cups Converter -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/converter_card_background"
+                android:padding="@dimen/card_padding">
+
+                <TextView
+                    android:id="@+id/textViewDlCupsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/converter_dl_cups"
+                    android:textColor="@color/military_tan"
+                    android:textSize="@dimen/converter_title_size"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider_height"
+                    android:layout_marginTop="@dimen/element_margin_medium"
+                    android:layout_marginBottom="@dimen/element_margin_medium"
+                    android:background="@color/primary_blue"
+                    android:alpha="0.3" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center">
+                    
+                    <EditText
+                        android:id="@+id/editTextDl"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewDlUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_dl"
+                        android:textColor="@color/text_primary"
+                        android:textSize="@dimen/unit_text_size"
+                        android:textStyle="bold"
+                        android:layout_marginStart="@dimen/unit_label_margin_start" />
+                </LinearLayout>
+
+                <SeekBar
+                    android:id="@+id/seekBarDl"
+                    style="@style/NeonSeekBar" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:layout_marginTop="@dimen/element_margin_medium">
+                    
+                    <EditText
+                        android:id="@+id/textViewResultCups"
+                        style="@style/NeonEditText"
+                        android:layout_width="wrap_content"
+                        android:hint="@string/hint_zero"
+                        android:minWidth="@dimen/edit_text_min_width" />
+                        
+                    <TextView
+                        android:id="@+id/textViewCupsUnit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/unit_cups"
                         android:textColor="@color/khaki"
                         android:textSize="@dimen/result_text_size"
                         android:textStyle="bold"

@@ -16,7 +16,9 @@
     <string name="converter_m_yd">Meters ↔ Yards</string>
     <string name="converter_m_ft">Meters ↔ Feet</string>
     <string name="converter_l_gal">Liters ↔ Gallons</string>
-    <string name="converter_mpg_l100km">Mpg ↔ L/100km</string>
+    <string name="converter_mpg_l100km">L/100km ↔ Mpg</string>
+    <string name="converter_ml_oz">Milliliters ↔ Ounces</string>
+    <string name="converter_dl_cups">Deciliters ↔ Cups</string>
     
     <!-- Units -->
     <string name="unit_kg">kg</string>
@@ -31,7 +33,11 @@
     <string name="unit_l">l</string>
     <string name="unit_gal">gal</string>
     <string name="unit_mpg">mpg</string>
-    <string name="unit_l100km">l / 100km</string>
+    <string name="unit_l100km">l/100km</string>
+    <string name="unit_ml">ml</string>
+    <string name="unit_fl_oz">fl oz</string>
+    <string name="unit_dl">dl</string>
+    <string name="unit_cups">cups</string>
     
     <!-- Hints -->
     <string name="hint_zero">0</string>
@@ -50,4 +56,7 @@
     <string name="unit_name_gallons">Gallons</string>
     <string name="unit_name_mpg">Mpg</string>
     <string name="unit_name_l100km">L / 100km</string>
+    <string name="unit_name_milliliters">Milliliters</string>
+    <string name="unit_name_deciliters">Deciliters</string>
+    <string name="unit_name_cups">Cups</string>
 </resources>

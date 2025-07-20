@@ -197,10 +197,36 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.textViewResultL100km),
             findViewById(R.id.textViewL100kmUnit),
             findViewById(R.id.textViewMpgL100kmTitle),
-            getString(R.string.unit_l100km), getString(R.string.unit_mpg), 0.5, 0.0, 30.0, 0.0, 100.0
+            getString(R.string.unit_mpg), getString(R.string.unit_l100km), 1.0, 0.0, 100.0, 0.0, 100.0
         )
         converters.add(mpgL100kmConfig)
         setupConverter(mpgL100kmConfig)
+        
+        // ml/fl oz converter
+        val mlOzConfig = ConverterConfig(
+            findViewById(R.id.editTextMl),
+            findViewById(R.id.textViewMlUnit),
+            findViewById(R.id.seekBarMl),
+            findViewById(R.id.textViewResultOz),
+            findViewById(R.id.textViewOzUnit),
+            findViewById(R.id.textViewMlOzTitle),
+            getString(R.string.unit_ml), getString(R.string.unit_fl_oz), 0.033814, 0.0, 1000.0, 0.0, 1000.0
+        )
+        converters.add(mlOzConfig)
+        setupConverter(mlOzConfig)
+        
+        // dl/cups converter
+        val dlCupsConfig = ConverterConfig(
+            findViewById(R.id.editTextDl),
+            findViewById(R.id.textViewDlUnit),
+            findViewById(R.id.seekBarDl),
+            findViewById(R.id.textViewResultCups),
+            findViewById(R.id.textViewCupsUnit),
+            findViewById(R.id.textViewDlCupsTitle),
+            getString(R.string.unit_dl), getString(R.string.unit_cups), 0.422675, 0.0, 50.0, 0.0, 50.0
+        )
+        converters.add(dlCupsConfig)
+        setupConverter(dlCupsConfig)
         
         // Apply styled titles to all converters
         applyStyledTitles()
@@ -235,6 +261,14 @@ class MainActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.textViewMpgL100kmTitle)?.text = createStyledTitle(
             getString(R.string.unit_name_mpg), 
             getString(R.string.unit_name_l100km)
+        )
+        findViewById<TextView>(R.id.textViewMlOzTitle)?.text = createStyledTitle(
+            getString(R.string.unit_name_milliliters),
+            getString(R.string.unit_name_ounces)
+        )
+        findViewById<TextView>(R.id.textViewDlCupsTitle)?.text = createStyledTitle(
+            getString(R.string.unit_name_deciliters),
+            getString(R.string.unit_name_cups)
         )
     }
     
