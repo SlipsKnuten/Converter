@@ -58,7 +58,8 @@
                     android:layout_height="@dimen/flag_height"
                     android:layout_marginEnd="@dimen/element_margin_medium"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/eu" />
+                    android:src="@drawable/eu"
+                    android:contentDescription="EU Flag" />
 
                 <com.google.android.material.switchmaterial.SwitchMaterial
                     android:id="@+id/regionToggle"
@@ -74,7 +75,8 @@
                     android:src="@drawable/usa"
                     android:scaleType="fitCenter"
                     android:adjustViewBounds="true"
-                    android:layout_marginStart="@dimen/element_margin_medium" />
+                    android:layout_marginStart="@dimen/element_margin_medium"
+                    android:contentDescription="USA Flag" />
             </LinearLayout>
 
             <!-- Category Selector -->
@@ -152,7 +154,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewCmUnit"
@@ -181,7 +184,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewInchesUnit"
@@ -233,7 +237,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewMetersUnit"
@@ -262,7 +267,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewFeetUnit"
@@ -313,7 +319,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewMetersYdUnit"
@@ -342,7 +349,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewYardsUnit"
@@ -403,7 +411,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewKilosUnit"
@@ -432,7 +441,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewPoundsUnit"
@@ -484,7 +494,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewGramsUnit"
@@ -513,7 +524,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewOuncesUnit"
@@ -574,7 +586,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewMpgUnit"
@@ -603,7 +616,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewL100kmUnit"
@@ -655,7 +669,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewLitersUnit"
@@ -684,7 +699,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewGallonsUnit"
@@ -736,7 +752,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewMlUnit"
@@ -765,7 +782,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewOzUnit"
@@ -816,7 +834,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewDlUnit"
@@ -845,7 +864,8 @@
                         style="@style/NeonEditText"
                         android:layout_width="wrap_content"
                         android:hint="@string/hint_zero"
-                        android:minWidth="@dimen/edit_text_min_width" />
+                        android:minWidth="@dimen/edit_text_min_width"
+                        android:autofillHints="" />
                         
                     <TextView
                         android:id="@+id/textViewCupsUnit"
