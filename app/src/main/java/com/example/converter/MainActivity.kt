@@ -223,7 +223,7 @@ class MainActivity : AppCompatActivity() {
             findViewById(R.id.textViewResultCups),
             findViewById(R.id.textViewCupsUnit),
             findViewById(R.id.textViewDlCupsTitle),
-            getString(R.string.unit_dl), getString(R.string.unit_cups), 0.422675, 0.0, 50.0, 0.0, 50.0
+            getString(R.string.unit_dl), getString(R.string.unit_cups), 0.422675, 0.0, 300.0, 0.0, 126.0
         )
         converters.add(dlCupsConfig)
         setupConverter(dlCupsConfig)
@@ -337,7 +337,8 @@ class MainActivity : AppCompatActivity() {
             val progress = if (absMax - absMin != 0.0) {
                 // Reverse the exponential scaling to get the correct slider position
                 val normalizedValue = (convertedValue - absMin) / (absMax - absMin)
-                val scalingPower = 2.5 // Must match the power used in onProgressChanged
+                // Use different scaling for dl/cups converter for better responsiveness
+                val scalingPower = if (config.euUnitName == getString(R.string.unit_dl)) 1.5 else 4.0
                 val normalizedProgress = normalizedValue.pow(1.0 / scalingPower)
                 (normalizedProgress * config.inputSeekBar.max).roundToInt()
             } else 0
@@ -402,7 +403,8 @@ class MainActivity : AppCompatActivity() {
                 val progress = if (absMax - absMin != 0.0) {
                     // Reverse the exponential scaling to get the correct slider position
                     val normalizedValue = (clampedValue - absMin) / (absMax - absMin)
-                    val scalingPower = 4.0 // Must match the power used in onProgressChanged
+                    // Use different scaling for dl/cups converter for better responsiveness
+                    val scalingPower = if (config.euUnitName == getString(R.string.unit_dl)) 1.5 else 4.0
                     val normalizedProgress = normalizedValue.pow(1.0 / scalingPower)
                     (normalizedProgress * config.inputSeekBar.max).roundToInt()
                 } else 0
@@ -428,7 +430,8 @@ class MainActivity : AppCompatActivity() {
                 val actualValue = if (seekBar.max > 0) {
                     // Use exponential scaling for progressive value increase
                     val normalizedProgress = progress.toDouble() / seekBar.max
-                    val scalingPower = 4.0 // Adjust this value to control the curve (higher = more exponential)
+                    // Use different scaling for dl/cups converter for better responsiveness
+                    val scalingPower = if (config.euUnitName == getString(R.string.unit_dl)) 1.5 else 4.0
                     val scaledProgress = normalizedProgress.pow(scalingPower)
                     val rawValue = absMin + scaledProgress * valueRange
                     // Round to nearest integer
@@ -493,7 +496,8 @@ class MainActivity : AppCompatActivity() {
                 val progress = if (absMax - absMin != 0.0) {
                     // Reverse the exponential scaling to get the correct slider position
                     val normalizedValue = (clampedValue - absMin) / (absMax - absMin)
-                    val scalingPower = 4.0 // Must match the power used in onProgressChanged
+                    // Use different scaling for dl/cups converter for better responsiveness
+                    val scalingPower = if (config.euUnitName == getString(R.string.unit_dl)) 1.5 else 4.0
                     val normalizedProgress = normalizedValue.pow(1.0 / scalingPower)
                     (normalizedProgress * config.inputSeekBar.max).roundToInt()
                 } else 0
